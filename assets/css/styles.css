@@ -804,56 +804,100 @@
     .section__container--cta {
       grid-template-columns: minmax(0, 1fr);
     }
-  
+
+    /* Imagem about-team: altura fixa quando empilhada */
     .section__image.about__image {
       order: -1;
     }
-  
+
+    .about__image-card {
+      height: 320px;
+      min-height: unset;
+    }
+
+    /* Menu mobile */
     .header__nav {
       position: fixed;
-      inset: 72px 0 0 0;
-      background-color: rgba(17, 17, 17, 0.96);
-      padding: 1.5rem;
-      transform: translateY(-120%);
+      top: 72px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(17, 17, 17, 0.98);
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
       transition: transform var(--transition-normal);
+      overflow-y: auto;
+      z-index: 998;
     }
-  
+
     .header__nav.open {
-      transform: translateY(0);
+      transform: translateX(0);
     }
-  
+
     .nav__list {
       flex-direction: column;
       align-items: flex-start;
-      gap: 1rem;
+      gap: 1.25rem;
     }
-  
+
+    .nav__link {
+      font-size: 1.1rem;
+    }
+
+    /* Esconde botão de orçamento no header em mobile */
+    .header__actions .btn--primary {
+      display: none;
+    }
+
     .header__toggle {
       display: flex;
     }
   }
-  
+
   @media (max-width: 768px) {
     .hero__text h1 {
-      font-size: 1.9rem;
+      font-size: 1.75rem;
     }
-  
+
     .hero__content {
       grid-template-columns: 1fr;
     }
-  
+
     .hero__logo-col {
       display: none;
     }
-  
+
     .section {
-      padding: 3rem 0;
+      padding: 2.5rem 0;
     }
-  
+
+    .section__header h2 {
+      font-size: 1.6rem;
+    }
+
+    /* Cards: 1 coluna em telas pequenas */
+    .cards--services,
+    .cards--differentials {
+      grid-template-columns: 1fr;
+    }
+
+    .cards--areas {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* About grid: 1 coluna */
+    .about__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about__item--full {
+      grid-column: 1;
+    }
+
     .footer__container {
       grid-template-columns: minmax(0, 1fr);
     }
-  
+
     .whatsapp-float {
       width: 46px;
       height: 46px;
@@ -861,19 +905,40 @@
       bottom: 1rem;
     }
   }
-  
+
   @media (max-width: 480px) {
     .hero {
-      min-height: 60vh;
+      min-height: auto;
     }
-  
+
     .hero__content {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
-  
+
+    .hero__text h1 {
+      font-size: 1.5rem;
+    }
+
     .hero__actions {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
+    }
+
+    .hero__actions .btn {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cards--areas {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about__image-card {
+      height: 260px;
+    }
+
+    .clients__grid {
+      grid-template-columns: 1fr;
     }
   }
