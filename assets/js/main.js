@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
           nav.classList.remove('open');
         });
       });
+
+      // Fechar menu ao clicar fora dele
+      document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+          nav.classList.remove('open');
+        }
+      });
     }
   
     // ============================
