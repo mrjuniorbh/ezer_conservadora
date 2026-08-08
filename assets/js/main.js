@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav__link');
   
     if (toggle && nav) {
-      toggle.addEventListener('click', function () {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
         nav.classList.toggle('open');
       });
-  
+
       // Fechar menu ao clicar em um link (mobile)
       navLinks.forEach(function (link) {
         link.addEventListener('click', function () {
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Fechar menu ao clicar fora dele
       document.addEventListener('click', function (e) {
-        if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        if (nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
           nav.classList.remove('open');
         }
       });
