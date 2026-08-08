@@ -111,6 +111,7 @@
     z-index: 999;
     background-color: rgba(17, 17, 17, 0.96);
     backdrop-filter: blur(10px);
+    overflow: visible;
   }
   
   .header__container {
@@ -827,7 +828,7 @@
       transform: translateX(100%);
       transition: transform var(--transition-normal);
       overflow-y: auto;
-      z-index: 998;
+      z-index: 1000;
     }
 
     .header__nav.open {
